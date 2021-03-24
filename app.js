@@ -7,13 +7,24 @@ const fs = require('fs');
 // fs close permet de supprimer l'identifiant pour le laisser a nouveau libre.
 
 // Ouvrir un fichier
-fs.open('test.js', 'a+', (err, fd) => {
-    if(err) throw err;
-    console.log(fd)
-    fs.close(fd, (err) => {});
-})
+// fs.open('test.js', 'a+', (err, fd) => {
+//     if(err) throw err;
+//     console.log(fd)
+//     fs.close(fd, (err) => {});
+// })
 
 // Réplique de la commande Mkdir
-fs.mkdir('test', {recursive : false}, (err) => {
-    if(err) throw err;
-})
+// fs.mkdir('test', {recursive : false}, (err) => {
+//     if(err) throw err;
+// })
+
+
+const creerDossier = process.argv[2];
+
+if(creerDossier) {
+    fs.mkdir(creerDossier, {recursive : false}, (err) => {
+        if(err) throw err;
+    })
+} else {
+    console.log("Error")
+}
