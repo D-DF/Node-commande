@@ -1,4 +1,5 @@
 const fs = require('fs');
+const {readdir} = require('fs');
 
 // Premier paramètre le fichier que l'on veut ouvrir
 // deuxieme parametre un flag, en fonction de celui qu'on choisi, cela nous donne une permission sur le fichier
@@ -21,10 +22,15 @@ const fs = require('fs');
 
 const creerDossier = process.argv[2];
 
-if(creerDossier) {
+if(creerDossier !== "ls") {
     fs.mkdir(creerDossier, {recursive : false}, (err) => {
         if(err) throw err;
     })
-} else {
-    console.log("Error")
 }
+
+const ls = process.argv[2];
+
+if(ls === "ls") {
+    readdir('.', (error, files) => console.log(files));
+}
+
