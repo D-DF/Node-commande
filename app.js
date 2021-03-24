@@ -22,7 +22,7 @@ const {readdir} = require('fs');
 
 const creerDossier = process.argv[2];
 
-if(creerDossier !== "ls") {
+if(creerDossier !== "ls" && creerDossier !=="lire") {
     fs.mkdir(creerDossier, {recursive : false}, (err) => {
         if(err) throw err;
     })
