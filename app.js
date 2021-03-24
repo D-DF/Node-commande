@@ -34,3 +34,12 @@ if(ls === "ls") {
     readdir('.', (error, files) => console.log(files));
 }
 
+const lire = process.argv[2];
+
+if(lire === "lire") {
+  fs.readFile('index.txt', 'utf8', function(err, data) {
+    const content = data;
+    console.log(content);
+  });
+}
+
