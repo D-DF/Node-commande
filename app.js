@@ -36,10 +36,14 @@ if(ls === "ls") {
 
 const lire = process.argv[2];
 
-if(lire === "lire") {
-  fs.readFile('index.txt', 'utf8', function(err, data) {
-    const content = data;
-    console.log(content);
-  });
+const lireFichier = (fichier) => {
+  if(lire === "lire") {
+    fs.readFile(fichier, 'utf8', function(err, data) {
+      const content = data;
+      console.log(content);
+    });
+  }
 }
+
+lireFichier("index.txt")
 
